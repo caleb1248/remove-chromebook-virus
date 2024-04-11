@@ -16,7 +16,7 @@ function moveWindows() {
   var window2VY = -5;
 
   // Move the windows diagonally and make them bounce off the edges
-  var intervalId = setInterval(function() {
+  const frame = function() {
     // Move window 1
     window1X += window1VX;
     window1Y += window1VY;
@@ -42,10 +42,12 @@ function moveWindows() {
     if (window2Y <= 0 || window2Y >= window.innerHeight - 200) {
       window2VY *= -1;
     }
-  });
+    requestAnimationFrame(frame)
+  }
+  frame()
 }
 
 // Call the function to start moving the windows
-setTimeout(() => {
+setInterval(() => {
 	moveWindows();
 }, 200)
