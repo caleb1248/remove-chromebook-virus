@@ -5,7 +5,7 @@ function moveWindows() {
 
   if (!window1 || window1.closed || typeof window1.closed == "undefined") {
     document.querySelector("h1").innerHTML =
-      "The chromebook virus remover makes a popup that removes the virus. Please enable popups and reload this page.";
+      "Error: The virus remover makes a popup that removes the virus. Please enable popups and reload this page.";
     clearInterval(interval);
   }
 
